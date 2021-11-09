@@ -1,9 +1,22 @@
 ---
-title: "Understanding the components"
-linkTitle: "Understanding the components"
+title: "Selenium Components"
+linkTitle: "Selenium Components"
 weight: 1
-aliases: ["/documentation/en/webdriver/understanding_the_components/"]
+aliases:
+        [
+            "/documentation/nl/webdriver/understanding_the_components/",
+            "/nl/documentation/webdriver/understanding_the_components/"
+        ]
 ---
+
+{{% pageinfo color="warning" %}}
+<p class="lead">
+   <i class="fas fa-language display-4"></i> 
+   Page being translated from 
+   English to Dutch. Do you speak Dutch? Help us to translate
+   it by sending us pull requests!
+</p>
+{{% /pageinfo %}}
 
 Building a test suite using WebDriver will require you to understand and 
 effectively use a number of different components. As with everything in 

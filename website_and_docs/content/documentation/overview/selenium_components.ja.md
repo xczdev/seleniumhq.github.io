@@ -2,7 +2,11 @@
 title: "コンポーネントを理解する"
 linkTitle: "コンポーネントを理解する"
 weight: 1
-aliases: ["/documentation/ja/webdriver/understanding_the_components/"]
+aliases:
+        [
+            "/documentation/ja/webdriver/understanding_the_components/",
+            "/ja/documentation/webdriver/understanding_the_components/"
+        ]
 ---
 
 WebDriverを使ってテストスイートを構築するには、多くの異なるコンポーネントを理解し、効率的に使用する必要があります。

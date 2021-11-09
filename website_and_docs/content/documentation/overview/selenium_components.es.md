@@ -1,8 +1,12 @@
 ---
-title: "Entendiendo los componentes"
-linkTitle: "Entendiendo los componentes"
+title: "Selenium Componentes"
+linkTitle: "Selenium Componentes"
 weight: 1
-aliases: ["/documentation/es/webdriver/understanding_the_components/"]
+aliases:
+        [
+            "/documentation/es/webdriver/understanding_the_components/",
+            "/es/documentation/webdriver/understanding_the_components/"
+        ]
 ---
 
 Construir una suite de test usando WebDriver requerirá que entiendas y 
