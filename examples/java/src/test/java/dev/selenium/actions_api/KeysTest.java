@@ -1,6 +1,6 @@
 package dev.selenium.actions_api;
 
-import dev.selenium.BaseTest;
+import dev.selenium.BaseTestChrome;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -10,7 +10,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class KeysTest extends BaseTest {
+public class KeysTest extends BaseTestChrome {
     @Test
     public void keyDown() {
         driver.get("https://www.selenium.dev/selenium/web/single_text_input.html");
