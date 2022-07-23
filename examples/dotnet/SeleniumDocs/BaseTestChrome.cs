@@ -6,7 +6,7 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace SeleniumDocs
 {
-    public class BaseTest
+    public class BaseTestChrome
     {
         protected IWebDriver driver;
 
