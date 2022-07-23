@@ -110,29 +110,13 @@ namespace SeleniumDocs.ActionsAPI
         }
 
         [TestMethod]
-        [Obsolete("Obsolete")]
-        public void MoveByOffsetFromTopLeftOfElement()
-        {
-            driver.Url = "https://selenium.dev/selenium/web/mouse_interaction.html";
-            
-            IWebElement tracker = driver.FindElement(By.Id("mouse-tracker"));
-            new Actions(driver)
-                .MoveToElement(tracker, 8, 11, MoveToElementOffsetOrigin.TopLeft)
-                .Perform();
-
-            string[] result = driver.FindElement(By.Id("relative-location")).Text.Split(", ");
-            Assert.IsTrue(Math.Abs(int.Parse(result[0]) - 8) < 2);
-            Assert.IsTrue(Math.Abs(int.Parse(result[1]) - 11) < 2);
-        }
-
-        [TestMethod]
         public void MoveByOffsetFromCenterOfElement()
         {
             driver.Url = "https://selenium.dev/selenium/web/mouse_interaction.html";
             
             IWebElement tracker = driver.FindElement(By.Id("mouse-tracker"));
             new Actions(driver)
-                .MoveToElement(tracker, 8, 11, MoveToElementOffsetOrigin.Center)
+                .MoveToElement(tracker, 8, 11)
                 .Perform();
 
             string[] result = driver.FindElement(By.Id("relative-location")).Text.Split(", ");
