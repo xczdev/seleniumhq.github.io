@@ -1,9 +1,9 @@
 package dev.selenium.getting_started;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,80 +16,70 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
-import java.nio.file.Path;
-import java.util.Optional;
-
 public class OpenBrowserTest {
-    public WebDriver driver;
-
     @Test
     public void chromeSession() {
+        WebDriverManager.chromedriver().setup();
+
         ChromeOptions options = new ChromeOptions();
-        driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver(options);
 
         driver.quit();
     }
 
     @Test
     public void edgeSession() {
+        WebDriverManager.edgedriver().setup();
+
         EdgeOptions options = new EdgeOptions();
-        driver = new EdgeDriver(options);
+        WebDriver driver = new EdgeDriver(options);
 
         driver.quit();
     }
 
     @Test
     public void firefoxSession() {
+        WebDriverManager.firefoxdriver().setup();
+
         FirefoxOptions options = new FirefoxOptions();
-        driver = new FirefoxDriver(options);
+        WebDriver driver = new FirefoxDriver(options);
 
         driver.quit();
     }
 
-    @Disabled("Only runs on Windows")
     @Test
     public void internetExplorerSession() {
+        Assumptions.assumeTrue(Platform.getCurrent().equals(Platform.WINDOWS), "IE only available on Windows");
+        WebDriverManager.iedriver().setup();
+
         InternetExplorerOptions options = new InternetExplorerOptions();
-        driver = new InternetExplorerDriver(options);
+        WebDriver driver = new InternetExplorerDriver(options);
 
         driver.quit();
     }
 
-    @Disabled("Only runs on Windows")
     @Test
     public void internetExplorerCompatibilitySession() {
+        Assumptions.assumeTrue(Platform.getCurrent().equals(Platform.WINDOWS), "IE only available on Windows");
+        WebDriverManager.iedriver().setup();
+
         InternetExplorerOptions options = new InternetExplorerOptions();
         options.attachToEdgeChrome();
-        options.withEdgeExecutablePath("/path/to/edge/browser");
+        options.withEdgeExecutablePath(System.getenv("EDGE_PATH"));
 
-        driver = new InternetExplorerDriver(options);
+        WebDriver driver = new InternetExplorerDriver(options);
 
         driver.quit();
     }
 
-    @Disabled("Requires non-standard browser")
-    @Test
-    public void operaSession() {
-        //    Set webdriver.chrome.driver with Opera Driver
-        System.setProperty("webdriver.chrome.driver", "OPERA_DRIVER_PATH");
-        //    Create ChromeOptions Instance
-        chromeOptions = new ChromeOptions();
-        //    Set W3C Dialect
-        chromeOptions.setExperimentalOption("w3c", true);
-        //    Create ChromeDriver Instance
-        driver = new ChromeDriver(chromeOptions);
-        //    Open Target Website
-        driver.get("https://www.selenium.dev");
-        //    Quit
-        driver.quit();
-    }
-
-    @Disabled("Only runs on Mac")
     @Test
     public void safariSession() {
+        Assumptions.assumeTrue(Platform.getCurrent().equals(Platform.MAC), "IE only available on Mac");
+        WebDriverManager.safaridriver().setup();
+
         SafariOptions options = new SafariOptions();
 
-        driver = new SafariDriver(options);
+        WebDriver driver = new SafariDriver(options);
 
         driver.quit();
     }

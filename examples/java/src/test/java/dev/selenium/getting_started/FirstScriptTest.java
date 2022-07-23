@@ -1,5 +1,6 @@
 package dev.selenium.getting_started;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -10,11 +11,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class FirstScriptTest {
-    public WebDriver driver;
-
     @Test
     public void eightComponents() {
-        driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+
+        WebDriver driver = new ChromeDriver();
 
         driver.get("https://google.com");
 

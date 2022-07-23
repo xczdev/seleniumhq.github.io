@@ -1,9 +1,9 @@
 package dev.selenium.getting_started;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -13,7 +13,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class InstallDriversTest {
     @Test
-    public void chromeSession() {
+    public void chromedriver() {
         WebDriverManager.chromedriver().setup();
 
         WebDriver driver = new ChromeDriver();
@@ -22,7 +22,7 @@ public class InstallDriversTest {
     }
 
     @Test
-    public void edgeSession() {
+    public void msedgedriver() {
         WebDriverManager.edgedriver().setup();
 
         WebDriver driver = new EdgeDriver();
@@ -31,7 +31,7 @@ public class InstallDriversTest {
     }
 
     @Test
-    public void firefoxSession() {
+    public void geckodriver() {
         WebDriverManager.firefoxdriver().setup();
 
         WebDriver driver = new FirefoxDriver();
@@ -39,12 +39,24 @@ public class InstallDriversTest {
         driver.quit();
     }
 
-    @Disabled("Only runs on Windows")
     @Test
-    public void ieSession() {
+    public void iedriver() {
+        Assumptions.assumeTrue(Platform.getCurrent().equals(Platform.WINDOWS), "IE only available on Windows");
+
         WebDriverManager.iedriver().setup();
 
         WebDriver driver = new InternetExplorerDriver();
+
+        driver.quit();
+    }
+
+    @Test
+    public void safaridriver() {
+        Assumptions.assumeTrue(Platform.getCurrent().equals(Platform.MAC), "IE only available on Mac");
+
+        WebDriverManager.safaridriver().setup();
+
+        WebDriver driver = new SafariDriver();
 
         driver.quit();
     }
