@@ -1,5 +1,5 @@
 ---
-title: "查询网络元素"
+title: "定位网络元素"
 linkTitle: "查询器"
 weight: 2
 needsTranslation: true
@@ -11,8 +11,8 @@ description: >
   根据提供的定位值定位元素.
 ---
 
-One of the most fundamental aspects of using Selenium is obtaining element references to work with.
-Selenium offers a number of built-in [locator strategies]({{< ref "locators.md" >}}) to uniquely identify an element.
+定位/获取元素，是使用 Selenium 中最基本的一项功能。
+Selenium 内置了一些功能 [定位器策略]({{< ref "locators.md" >}}) 来准确定位元素。
 There are many ways to use the locators in very advanced scenarios. For the purposes of this documentation, 
 let's consider this HTML snippet:
 
